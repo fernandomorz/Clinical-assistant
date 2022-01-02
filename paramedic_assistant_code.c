@@ -1,7 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 
-void funcion_TA ()
+void BP_Function (BP_sist, BP_dias, sex ){
+	//Norma Oficial Mexicana NOM-030-SSA2-2009, Para la prevención, detección, 
+	//diagnóstico, tratamiento y control de la hipertensión arterial sistémica.
+	switch (BP_sist) {
+	Optima     						< 120  		<80
+	Normal 							120-129		80-84
+	Normal alta 					130-139		85-89
+	Hipertension grado 1 			140-159		90-99
+	Hipertension grado 2 			160-179		100-109
+	Hipertension grado 3 			> =180		>= 110
+	Hipertension sistolica aislada  > =140		<90
+	}
+}
+
+void Glu_Function(){
+// Basado en NOM-015-SSA2-2010:PARA LA PREVENCION, 
+//TRATAMIENTO Y CONTROL DE LA DIABETES MELLITUS
+
+
+}
 
 int main (){
 	
