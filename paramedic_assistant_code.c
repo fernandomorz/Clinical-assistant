@@ -1,51 +1,67 @@
 #include <stdio.h>
 #include <string.h>
 
-void BP_Function (BP_sist, BP_dias, sex ){
+void BlodPressure_Function (Systolic_BP, Diastolic_BP ){
 	//Norma Oficial Mexicana NOM-030-SSA2-2009, Para la prevención, detección, 
 	//diagnóstico, tratamiento y control de la hipertensión arterial sistémica.
-	switch (BP_sist) {
-	Optima     						< 120  		<80
-	Normal 							120-129		80-84
-	Normal alta 					130-139		85-89
-	Hipertension grado 1 			140-159		90-99
-	Hipertension grado 2 			160-179		100-109
-	Hipertension grado 3 			> =180		>= 110
-	Hipertension sistolica aislada  > =140		<90
+	
+		if( Systolic_BP < 120 && Diastolic_BP <80){
+			printf("BP Optima \n");     					
+		return ;}
+		
+		if( (Systolic_BP >=120 || Systolic_BP <130) && (Diastolic_BP >=80 || Diastolic_BP <85)){
+			printf("BP Normal \n");
+		return ;}
+		
+		if( (Systolic_BP >= 130 || Systolic_BP <140) && (Diastolic_BP >=85 || Diastolic_BP <90)){
+		
+			printf("BP Normal alta \n");
+		return ;}
+		
+		if( (Systolic_BP >=140 || Systolic_BP <160) && (Diastolic_BP >=90 || Diastolic_BP <100)){
+			printf("Hipertension grado 1 \n");
+		return ;}
+		
+		if( (Systolic_BP >=160 || Systolic_BP <180) && (Diastolic_BP >=100 || Diastolic_BP <110)){
+			printf("Hipertension grado 2 \n");
+		return ;}
+		
+		if ((Systolic_BP >=180 ) && (Diastolic_BP >= 110)){
+			printf("Hipertension grado 3 \n");
+		return ;}
+		
+		if ((Systolic_BP >=140 ) && (Diastolic_BP <90)){
+			printf("Hipertension sistolica aislada \n"); 
+		return ;}
 	}
-}
 
 void Glu_Function(){
 // Basado en NOM-015-SSA2-2010:PARA LA PREVENCION, 
 //TRATAMIENTO Y CONTROL DE LA DIABETES MELLITUS
-
-
 }
+
 
 int main (){
 	
-char ansyn;
+//*************___VARIABLES___*************	
+char ansyn;	
+int Px_numero;	
+int SBP_Actual; //BlodPressure_Function
+int DBP_Actual; //BlodPressure_Function
 
 printf ("Asistente en Urgencias medicas. By Fernando Moreno  \n");
 // printf recibe parametros uno es la propia cadena de formato 
 //la cajita de las letras; las letras (texto) y valores de variables (marcas) que 
 //se agregan a las 
 
+//*************___¿ASC y EPP?___*************	
 do{
-printf ("¿Cuento con ASC? Y/N  \n");
+printf ("¿Cuento con ASC y EPP? Y/N  \n");
 ansyn=getch();
-//scanf ("%c",&ansyn);
-/* (strcmp(ans_y, ansyn)==0){
-	//printf ("Continuando protocolo");
-	}
-	else if (strcmp(ans_n, ansyn)==0){
-	printf ("¿Cuento con ASC? Y/N");
-	}
-*/
 		} while (toupper (ansyn)=='N');
-
 printf ("...  \n");
 
+//*************___¿ESCENA SEGURA?___*************	
 do {
 printf ("Escena segura? Y/N  \n");
 ansyn=getch();
@@ -56,15 +72,24 @@ ansyn=getch();
 		printf ("Seguridad publica activada: Escena segura  \n");
 		}}
 	} while (toupper (ansyn)=='N');
+printf ("...  \n");
 
-
-printf ("Me reportan # numero de pacientes. No se descartan más  \n");
-printf ("Inmovilización de cervicales hasta abordar al paciente  \n");
-printf ("Naturaleza de la enfermedad o mecanismo de lesion hasta abordar al Px  \n");
+//*************___¿NUMERO DE PX?___*************
+printf ("Numero de pacientes (Px)?  \n");	
+scanf("%d", &Px_numero);
+printf ("Me reportan %d numero de pacientes. No se descartan más  \n",Px_numero);
+printf ("...  \n");
+printf ("Inmovilización de cervicales hasta abordar al Px  \n");
+printf ("Naturaleza de la enfermedad o mecanismo de lesion hasta abordar al Px  \n");printf ("...  \n");
 
 printf ("Comenzando AVDI  \n");
 
+printf ("Ingrese la Presion Sistólica \n");
+scanf ("%d", &SBP_Actual);
+printf ("Ingrese la Presion Diastólica \n");
+scanf ("%d", &DBP_Actual);
 
+BlodPressure_Function (SBP_Actual, DBP_Actual );
 
 return 0;
 
