@@ -36,10 +36,39 @@ void BlodPressure_Function (Systolic_BP, Diastolic_BP ){
 	}
 
 void Glu_Function(){
-// Basado en NOM-015-SSA2-2010:PARA LA PREVENCION, 
-//TRATAMIENTO Y CONTROL DE LA DIABETES MELLITUS
+
 }
 
+void DCAP_BLS(){
+printf ("D	-Deformacion \n");
+printf ("C	-Contusion \n");
+printf ("A	-Abrasion \n");
+printf ("P	-Penetracion \n");
+printf ("L	-Laceracion \n");
+printf ("Q	-Quemadura \n");
+printf ("E	-Edema \n");
+printf ("S	-Sensibilidad \n");
+printf ("I	-Inestabilidad \n");
+printf ("C	-Crepitacion \n");
+}
+
+void SAMPLE(){
+printf ("S	-Sintomas:    		Que signos y sintomas se produjeron al inicio? \n");
+printf ("A	-Alergias: 	 		Es alergico a algun medicamento o agente \n");
+printf ("M	-Medicamento:  		Toma algun medicamento? \n");
+printf ("P	-Padecimiento: 		El Px tiene historial medico? \n");
+printf ("L	-Lunch:   	 		Cuando fue su ultima comida?	 \n");
+printf ("E	-Acontecimientos: 	Que causo este incidente? \n");
+}
+
+void OPQRST(){
+printf ("O	-Origen:        Cuando inicio? \n");
+printf ("P	-Provocado: 	A que se lo atribuye? \n");
+printf ("Q	-Calidad:  		Que caracteristicas tiene? \n");
+printf ("R	-Irradiacion: 	Hacia donde se irradia la molestia? \n");
+printf ("S	-Severidad:   	Que intensidad tiene?	 \n");
+printf ("T	-Tiempo: 		Cuanto tiempo dura la molestia? \n");
+}
 
 int main (){
 	
