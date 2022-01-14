@@ -1,37 +1,40 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 void BlodPressure_Function (Systolic_BP, Diastolic_BP ){
 	//Norma Oficial Mexicana NOM-030-SSA2-2009, Para la prevención, detección, 
 	//diagnóstico, tratamiento y control de la hipertensión arterial sistémica.
-	
+		
+		printf("Su Presion arterial Sistemica es = %d \n",(Systolic_BP + 2*Diastolic_BP)/3);     					
+
 		if( Systolic_BP < 120 && Diastolic_BP <80){
-			printf("BP Optima \n");     					
+			printf("En un rango Optimo \n");     					
 		return ;}
 		
 		if( (Systolic_BP >=120 || Systolic_BP <130) && (Diastolic_BP >=80 || Diastolic_BP <85)){
-			printf("BP Normal \n");
+			printf("En un rango Normal \n");
 		return ;}
 		
 		if( (Systolic_BP >= 130 || Systolic_BP <140) && (Diastolic_BP >=85 || Diastolic_BP <90)){
 		
-			printf("BP Normal alta \n");
+			printf("En un rango Normal alto \n");
 		return ;}
 		
 		if( (Systolic_BP >=140 || Systolic_BP <160) && (Diastolic_BP >=90 || Diastolic_BP <100)){
-			printf("Hipertension grado 1 \n");
+			printf("Atencion!---Hipertension grado 1 \n");
 		return ;}
 		
 		if( (Systolic_BP >=160 || Systolic_BP <180) && (Diastolic_BP >=100 || Diastolic_BP <110)){
-			printf("Hipertension grado 2 \n");
+			printf("Atencion!---Hipertension grado 2 \n");
 		return ;}
 		
 		if ((Systolic_BP >=180 ) && (Diastolic_BP >= 110)){
-			printf("Hipertension grado 3 \n");
+			printf("Atencion!---Hipertension grado 3 \n");
 		return ;}
 		
 		if ((Systolic_BP >=140 ) && (Diastolic_BP <90)){
-			printf("Hipertension sistolica aislada \n"); 
+			printf("Hipertension sistolica aislada. Verifique nuevamente \n"); 
 		return ;}
 	}
 
@@ -70,6 +73,35 @@ printf ("S	-Severidad:   	Que intensidad tiene?	 \n");
 printf ("T	-Tiempo: 		Cuanto tiempo dura la molestia? \n");
 }
 
+void AVDI (){
+	int i;
+	char respuesta;
+	printf ("Evaluando AVDI... (Estimulo de Alerta, Verbal, Dolor-->Inconsciencia)  \n");
+	
+	printf ("El Px me percibe a la llegada? Y/N \n");
+	respuesta= getch (); 
+	if (toupper(respuesta)=='Y'){
+		printf ("Px Consciente\n");
+				return;
+		} else if (toupper(respuesta)=='N') { i=0;}
+	
+	printf ("El Px Responde si le hablo?  \n");
+	respuesta= getch (); 
+	if (toupper(respuesta)=='Y'){
+		printf ("Px Consciente\n");
+				return;
+		} else if (toupper(respuesta)=='N') { i=1;}
+	
+	printf ("El Px Responde al estimulo doloroso?  \n");
+	respuesta= getch (); 
+	if (toupper(respuesta)=='Y'){
+		printf ("Px Consciente\n");
+				return;
+		} else if (toupper(respuesta)=='N') { i=2;}	
+		
+	if (i==2){printf ("Px Inconsciente \n");}	
+}
+
 int main (){
 	
 //*************___VARIABLES___*************	
@@ -89,6 +121,7 @@ printf ("¿Cuento con ASC y EPP? Y/N  \n");
 ansyn=getch();
 		} while (toupper (ansyn)=='N');
 printf ("...  \n");
+system("cls");
 
 //*************___¿ESCENA SEGURA?___*************	
 do {
@@ -101,24 +134,37 @@ ansyn=getch();
 		printf ("Seguridad publica activada: Escena segura  \n");
 		}}
 	} while (toupper (ansyn)=='N');
-printf ("...  \n");
+printf (" PARAMEDICO EN ACCION!!!!  \n");
+system("pause");
+system("cls");
 
 //*************___¿NUMERO DE PX?___*************
 printf ("Numero de pacientes (Px)?  \n");	
 scanf("%d", &Px_numero);
-printf ("Me reportan %d numero de pacientes. No se descartan más  \n",Px_numero);
-printf ("...  \n");
+printf ("Numero de Px reportados: %d . [No descarte más] \n",Px_numero);
+system("pause");
+system("cls");
+
+//*************___INMOVILIZACION DE CERVICALES, NATURALEZA DE ENFERMEDAD O MECANISMO DE LESION___*************
 printf ("Inmovilización de cervicales hasta abordar al Px  \n");
-printf ("Naturaleza de la enfermedad o mecanismo de lesion hasta abordar al Px  \n");printf ("...  \n");
+printf ("Naturaleza de la enfermedad o mecanismo de lesion hasta abordar al Px  \n");
+printf ("...  \n");
+system("pause");
+system("cls");
 
-printf ("Comenzando AVDI  \n");
+//*************___AVDI___*************
+printf ("Evaluando AVDI \n");
+AVDI(); 
+system("pause");
+system("cls");
 
+//*************___SV_BP___*************
 printf ("Ingrese la Presion Sistólica \n");
 scanf ("%d", &SBP_Actual);
 printf ("Ingrese la Presion Diastólica \n");
 scanf ("%d", &DBP_Actual);
-
 BlodPressure_Function (SBP_Actual, DBP_Actual );
+system("pause");
 
 return 0;
 
