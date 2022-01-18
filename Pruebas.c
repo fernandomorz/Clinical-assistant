@@ -4,36 +4,42 @@
 #include <string.h>
 #include <stdlib.h>
 
-void AVDI (){
-	int i;
+void ABC (){
 	char respuesta;
-	printf ("Evaluando AVDI... (Estimulo de Alerta, Verbal, Dolor-->Inconsciencia)  \n");
 	
-	printf ("El Px me percibe a la llegada? Y/N \n");
-	respuesta= getch (); //scanf("%c", &respuesta);
+//****A***	
+printf ("A---Airway \n");
+printf ("El Paciente habla, respira o llora sin dificultad? Y/N  \n");
+respuesta= getch (); 
 	if (toupper(respuesta)=='Y'){
-		printf ("Px Consciente\n");
-				return;
-		} else if (toupper(respuesta)=='N') { i=0;}
-	
-	printf ("El Px Responde si le hablo?  \n");
-	respuesta= getch (); //scanf("%c", &respuesta);
-	if (toupper(respuesta)=='Y'){
-		printf ("Px Consciente\n");
-				return;
-		} else if (toupper(respuesta)=='N') { i=1;}
-	
-	printf ("El Px Responde al estimulo doloroso?  \n");
-	respuesta= getch (); //scanf("%c", &respuesta);
-	if (toupper(respuesta)=='Y'){
-		printf ("Px Consciente\n");
-				return;
-		} else if (toupper(respuesta)=='N') { i=2;}	
-		
-	if (i==2){printf ("Px Inconsciente \n");}
+		printf ("Conducto Aereo Permeable \n"); return;}
+		else if (toupper(respuesta)=='N');{
+			printf ("El Paciente tiene difiultad para respirar o presenta ruidos anormales Y/N  \n");}
+			respuesta= getch (); 
+				if (toupper(respuesta)=='Y'){
+				system("cls");
+				do{
+				printf ("Realice control cervical manual y verifique obstrucción de conducto aereo \n"); 
+				printf ("Signos de Obstrucción: Trauma/sangre. Ruidos respiratorios anormales. Apnea \n"); 
+				printf ("--->Conducto Aereo Permeable? \n"); 
+				respuesta=getch();
+				} while (toupper (respuesta)=='N');
+				}else if (toupper(respuesta)=='N');{ 
+							printf ("Conducto Aereo Permeable \nContinuando protocolo ABC \n ");}
+//****B***	
+printf ("B---Breathing \n");
+
+printf ("Inspeccion de Ventilaciones por VOS: Ver Oir Sentir   \n");
+printf ("Aqui falta mas trabajo :(   \n");
+
+printf ("Inspeccion de Campos Pulmonares   \n");
+
+
 }
 
 int main(){
- AVDI(); 
+ ABC(); 
+system("pause");
+system("cls");
 return 0;
 }

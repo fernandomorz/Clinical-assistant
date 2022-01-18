@@ -2,23 +2,23 @@
 #include <string.h>
 #include <stdlib.h>
 
-void BlodPressure_Function (Systolic_BP, Diastolic_BP ){
+void SV_BlodPressure_Function (Systolic_BP, Diastolic_BP ){
 	//Norma Oficial Mexicana NOM-030-SSA2-2009, Para la prevención, detección, 
 	//diagnóstico, tratamiento y control de la hipertensión arterial sistémica.
 		
 		printf("Su Presion arterial Sistemica es = %d \n",(Systolic_BP + 2*Diastolic_BP)/3);     					
 
 		if( Systolic_BP < 120 && Diastolic_BP <80){
-			printf("En un rango Optimo \n");     					
+			printf("	Rango Optimo de Presion Arterial \n");     					
 		return ;}
 		
 		if( (Systolic_BP >=120 || Systolic_BP <130) && (Diastolic_BP >=80 || Diastolic_BP <85)){
-			printf("En un rango Normal \n");
+			printf("Rango Normal de Presion Arterial \n");
 		return ;}
 		
 		if( (Systolic_BP >= 130 || Systolic_BP <140) && (Diastolic_BP >=85 || Diastolic_BP <90)){
 		
-			printf("En un rango Normal alto \n");
+			printf("Rango Normal Alto de Presion Arterial \n");
 		return ;}
 		
 		if( (Systolic_BP >=140 || Systolic_BP <160) && (Diastolic_BP >=90 || Diastolic_BP <100)){
@@ -74,32 +74,51 @@ printf ("T	-Tiempo: 		Cuanto tiempo dura la molestia? \n");
 }
 
 void AVDI (){
+
 	int i;
 	char respuesta;
 	printf ("Evaluando AVDI... (Estimulo de Alerta, Verbal, Dolor-->Inconsciencia)  \n");
 	
-	printf ("El Px me percibe a la llegada? Y/N \n");
-	respuesta= getch (); 
-	if (toupper(respuesta)=='Y'){
-		printf ("Px Consciente\n");
-				return;
-		} else if (toupper(respuesta)=='N') { i=0;}
-	
-	printf ("El Px Responde si le hablo?  \n");
-	respuesta= getch (); 
-	if (toupper(respuesta)=='Y'){
-		printf ("Px Consciente\n");
-				return;
-		} else if (toupper(respuesta)=='N') { i=1;}
-	
-	printf ("El Px Responde al estimulo doloroso?  \n");
-	respuesta= getch (); 
-	if (toupper(respuesta)=='Y'){
-		printf ("Px Consciente\n");
-				return;
-		} else if (toupper(respuesta)=='N') { i=2;}	
+	printf ("El paciente percibe su llegada? Y/N \n");
+		respuesta= getch (); 
+		if (toupper(respuesta)=='Y'){
+		printf ("Paiente Consciente\n"); return;
+		 }else if (toupper(respuesta)=='N');i=0;
+		 
+	printf ("El paciente Responde al estimulo verbal? Y/N \n");
+		respuesta= getch (); 
+		if (toupper(respuesta)=='Y'){
+		printf ("Paciente Consciente\n"); return;
+		 }else if (toupper(respuesta)=='N');i=1;
+		printf ("El Paciente Responde al estimulo doloroso? Y/N \n");
+		respuesta= getch (); 
+		if (toupper(respuesta)=='Y'){ 
+		printf ("Paciente Consciente\n"); return;
+		 }else if (toupper(respuesta)=='N');i=2;	
 		
-	if (i==2){printf ("Px Inconsciente \n");}	
+	if (i==2){printf ("Paciente Inconsciente \n");}
+	
+} 
+ 		
+void ABC (){
+	char respuesta;
+printf ("El Paciente habla, respira o llora sin dificultad? Y/N  \n");
+respuesta= getch (); 
+	if (toupper(respuesta)=='Y'){
+		printf ("Conducto Aereo Permeable \n"); return;}
+		else if (toupper(respuesta)=='N');{
+			printf ("El Paciente tiene difiultad para respirar o presenta ruidos anormales Y/N  \n");}
+			respuesta= getch (); 
+				if (toupper(respuesta)=='Y'){
+				system("cls");
+				do{
+				printf ("Realice control cervical manual y verifique obstrucción de conducto aereo \n"); 
+				printf ("Signos de Obstrucción: Trauma/sangre. Ruidos respiratorios anormales. Apnea \n"); 
+				printf ("--->Conducto Aereo Permeable? \n"); 
+				respuesta=getch();
+				} while (toupper (respuesta)=='N');
+				}else if (toupper(respuesta)=='N');{ 
+							printf ("Conducto Aereo Permeable \nContinuando protocolo ABC \n ");}
 }
 
 int main (){
@@ -110,7 +129,7 @@ int Px_numero;
 int SBP_Actual; //BlodPressure_Function
 int DBP_Actual; //BlodPressure_Function
 
-printf ("Asistente en Urgencias medicas. By Fernando Moreno  \n");
+printf ("Asistente en Urgencias Medicas. By Fernando Moreno  \n");
 // printf recibe parametros uno es la propia cadena de formato 
 //la cajita de las letras; las letras (texto) y valores de variables (marcas) que 
 //se agregan a las 
@@ -148,13 +167,36 @@ system("cls");
 //*************___INMOVILIZACION DE CERVICALES, NATURALEZA DE ENFERMEDAD O MECANISMO DE LESION___*************
 printf ("Inmovilización de cervicales hasta abordar al Px  \n");
 printf ("Naturaleza de la enfermedad o mecanismo de lesion hasta abordar al Px  \n");
-printf ("...  \n");
+system("pause");
+system("cls");
+
+
+//*************___EVALUACION DE ESCENA___*************
+printf ("Evaluacion de Escena (en construccion)  \n");
+printf ("Edad, Sexo, Raza, Posición, Aspecto general, Olores/riesgos  \n");
+system("pause");
+system("cls");
+
+//*************___CONSENTIMIENTO___*************
+printf ("Lider: \n Presentese. Pida el nombre del Paciente y el consentimiento para atenderlo  \n");
+printf ("Tiene consentimiento del Paciente, Familiar o Legal?  \n");
+ansyn=getch();
+	if (toupper(ansyn)=='N'){
+		printf ("Detener la atención prehospotalaria. \n Reazizar FRAP. \n"); return;
+    } else if (toupper(ansyn)=='Y'){
+		printf ("Continuando Protocolo  \n");
+		printf ("(Evaluar: Edad, Sexo, Raza, Posición, Aspecto general, Olores/riesgos)  \n");
+	} while (toupper (ansyn)=='N');
 system("pause");
 system("cls");
 
 //*************___AVDI___*************
-printf ("Evaluando AVDI \n");
 AVDI(); 
+system("pause");
+system("cls");
+
+//*************___ABC PROTOCOLO___*************
+ABC(); 
 system("pause");
 system("cls");
 
@@ -163,7 +205,7 @@ printf ("Ingrese la Presion Sistólica \n");
 scanf ("%d", &SBP_Actual);
 printf ("Ingrese la Presion Diastólica \n");
 scanf ("%d", &DBP_Actual);
-BlodPressure_Function (SBP_Actual, DBP_Actual );
+SV_BlodPressure_Function (SBP_Actual, DBP_Actual );
 system("pause");
 
 return 0;
