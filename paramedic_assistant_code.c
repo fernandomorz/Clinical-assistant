@@ -103,11 +103,11 @@ void AVDI (){
  		
 void ABC (){
   clock_t t,ts;
-  int segundos=0; 	
+  int segundos=0; int i;	
   char respuesta;
   unsigned int sleep(unsigned int segundos); //Aun no entiendo como funciona
   ts=clock()+CLOCKS_PER_SEC;
-  
+//A
 printf ("El Paciente habla, respira o llora sin dificultad? Y/N  \n");
 respuesta= getch (); 
 if (toupper(respuesta)=='Y'){printf ("Conducto Aereo Permeable \n"); return;}
@@ -118,29 +118,53 @@ system("cls");
 printf ("El Paciente tiene difiultad para respirar o presenta ruidos anormales? Y/N \n");			
 respuesta= getch (); 
 	if (toupper(respuesta)=='Y'){ goto CONTROL_CERVICAL;}
-	else{printf ("NO C Q PROCD :( \n"); return;}	
+	else{printf ("AQUI NO SE QUE VA :( \n"); goto CIRCULACION;}	
 } //fineseif
-
+//B
 CONTROL_CERVICAL:
 do  { //Si paciente tiene via comprometida
     	if((t=clock())>=ts) {++segundos; ts=t+CLOCKS_PER_SEC;
     	if (segundos==1){ system("cls");
-		printf ("Realice control cervical manual y verifique obstrucciOn de conducto aereo \n"); 
+		printf ("Realice control cervical manual y verifique obstruccion de conducto aereo \n"); 
 		printf ("\n");
-		printf ("Signos de ObstrucciOn:--Trauma/sangre-- \n");}	
+		printf ("Signos de Obstruccion:--Trauma/sangre-- \n");}	
 			
 		if (segundos==3){ system("cls");
-		printf ("Realice control cervical manual y verifique obstrucción de conducto aereo \n"); 
+		printf ("Realice control cervical manual y verifique obstruccion de conducto aereo \n"); 
 		printf ("\n");
-		printf ("Signos de ObstrucciOn:--Ruidos respiratorios anormales-- \n");}
+		printf ("Signos de Obstruccion:--Ruidos respiratorios anormales-- \n");}
 		
 		if (segundos==5){ system("cls");
-		printf ("Realice control cervical manual y verifique obstrucción de conducto aereo \n"); 
+		printf ("Realice control cervical manual y verifique obstruccion de conducto aereo \n"); 
 		printf ("\n");
-		printf ("Signos de ObstrucciOn:--Apnea-- \n");}
+		printf ("Signos de Obstruccion:--Apnea-- \n");}
 		}
     	}while (segundos<=6); segundos=0; goto REVALORAR;
+//C
+CIRCULACION:	
+	for (i=0;i<2;i++){
+do  { 
+    	if((t=clock())>=ts) {++segundos; ts=t+CLOCKS_PER_SEC;
+    	if (segundos==1){ system("cls");
+		printf ("Detectando Ritmo Frecuencia y Calidad de los Pulsos \n"); 
+		printf ("\n");}		
+		if (segundos==3){ system("cls");
+		printf ("Determinando Pulso Central y Periferico \n"); 
+		printf ("\n");}
+		if (segundos==5){ system("cls");
+		printf ("Evaluando Condicion Temperatura y Coloracion de la piel \n"); 
+		printf ("\n");}
+		if (segundos==7){ system("cls");
+		printf ("Explorando Focos Cardiacos \n"); 
+		printf ("\n");}
+		if (segundos==9){ system("cls");
+		printf ("Evaluando llenado capilar \n"); 
+		printf ("\n");}
+		}
+    	}while (segundos<=10); segundos=0; 
+    }
 }
+
 
 int main (){
 	
@@ -181,7 +205,7 @@ system("cls");
 //*************___¿NUMERO DE PX?___*************
 printf ("Numero de pacientes (Px)?  \n");	
 scanf("%d", &Px_numero);
-printf ("Numero de Px reportados: %d . [No descarte más] \n",Px_numero);
+printf ("Numero de Px reportados: %d . [No descarte mas] \n",Px_numero);
 system("pause");
 system("cls");
 
@@ -199,14 +223,14 @@ system("pause");
 system("cls");
 
 //*************___CONSENTIMIENTO___*************
-printf ("Lider: \n Presentese. Pida el nombre del Paciente y el consentimiento para atenderlo  \n");
-printf ("Tiene consentimiento del Paciente, Familiar o Legal?  \n");
+printf ("Lider: Presentese. Pida el nombre del Paciente y el consentimiento para atenderlo  \n");
+printf ("Tiene consentimiento del Paciente, Familiar o Legal? Y/N \n");
 ansyn=getch();
 	if (toupper(ansyn)=='N'){
 		printf ("Detener la atención prehospotalaria. \n Reazizar FRAP. \n"); return;
     } else if (toupper(ansyn)=='Y'){
 		printf ("Continuando Protocolo  \n");
-		printf ("(Evaluar: Edad, Sexo, Raza, Posición, Aspecto general, Olores/riesgos)  \n");
+		printf ("(Evaluar: Edad, Sexo, Raza, Posicion, Aspecto general, Olores/riesgos)  \n");
 	} while (toupper (ansyn)=='N');
 system("pause");
 system("cls");
@@ -222,9 +246,9 @@ system("pause");
 system("cls");
 
 //*************___SV_BP___*************
-printf ("Ingrese la Presion Sistólica \n");
+printf ("Ingrese la Presion Sistolica \n");
 scanf ("%d", &SBP_Actual);
-printf ("Ingrese la Presion Diastólica \n");
+printf ("Ingrese la Presion Diastolica \n");
 scanf ("%d", &DBP_Actual);
 SV_BlodPressure_Function (SBP_Actual, DBP_Actual );
 system("pause");
